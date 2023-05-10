@@ -14,6 +14,22 @@ const Modal = {
     }
 }
 
+const ModalRestart = {
+    open(){
+        document
+            .querySelector('.modal-overlayRestart')
+            .classList
+            .add('active')
+
+    },
+    close(){
+        document
+            .querySelector('.modal-overlayRestart')
+            .classList
+            .remove('active')
+    }
+}
+
 const Transactions = [
     {
         id: 1,
