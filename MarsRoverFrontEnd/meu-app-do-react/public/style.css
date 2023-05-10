@@ -149,7 +149,7 @@ header {
 }
 
 /* Table ================================= */
-#transaction {
+#summary {
     display: block;
     width: 100%;
     overflow-x: auto;

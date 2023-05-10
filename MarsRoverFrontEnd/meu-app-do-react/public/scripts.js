@@ -30,7 +30,7 @@ const ModalRestart = {
     }
 }
 
-const Transactions = [
+const Summary = [
     {
         id: 1,
         landingPosition: [1, 2, 'N'],
@@ -47,48 +47,27 @@ const Transactions = [
 
 
 const DOM = {
-    transactionsContainer: document.querySelector('#data-table tbody'),
+    summaryContainer: document.querySelector('#data-table tbody'),
 
-    addTransaction(transaction, index) {
+    addSummary(summary, index) {
         const tr = document.createElement('tr')
-        tr.innerHTML = DOM.innerHTMLTransaction(transaction)
+        tr.innerHTML = DOM.innerHTMLSummary(summary)
 
-        DOM.transactionsContainer.appendChild(tr)
+        DOM.summaryContainer.appendChild(tr)
 
     },
-    innerHTMLTransaction(transaction, index) {
-        const CSSclass = transaction.amount > 0 ? "income" : "expense" // data verification
-
-        const amount = Utils.formatCurrency(transaction.amount)
-
+    innerHTMLSummary(summary, index) {
         const html = `
-        <td class="description">${transaction.id}</td>
-        <td class="description">${transaction.landingPosition}</td>
-        <td class="description">${transaction.instruction}</td>
-        <td class="description">${transaction.finalPosition}</td>
+        <td class="description">${summary.id}</td>
+        <td class="description">${summary.landingPosition}</td>
+        <td class="description">${summary.instruction}</td>
+        <td class="description">${summary.finalPosition}</td>
         `
 
         return html
     }
 }
 
-const Utils = {
-    formatCurrency(value) {
-        const signal = Number(value) < 0 ? "-" : ""
-
-        value = String(value).replace(/\D/g, "") //expressão regular - /\D (define) a g (expressão global), trocar por ""
-
-        value = Number(value) / 100
-
-        value = value.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        }) //funcionalidade com dois argumentos, tipo/local e opções como objeto (estilo e tipo)
-
-       return signal + value
-    }
-}
-
-Transactions.forEach(function(transaction){
-    DOM.addTransaction(transaction)
+Summary.forEach(function(summary){
+    DOM.addSummary(summary)
 })
