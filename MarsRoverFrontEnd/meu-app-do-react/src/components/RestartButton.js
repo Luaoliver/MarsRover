@@ -2,12 +2,12 @@ import { ModalContext } from "../context/modalContext"
 import { useContext } from "react"
 
 function RestartButton() {
-    const { isOpen, setIsOpen } = useContext(ModalContext)
+    const { isOpenRestart, setIsOpenRestart } = useContext(ModalContext)
 
     return(
         <div class="card">
             <a href="#" 
-            onClick={() => setIsOpen(true)}
+            onClick={() => setIsOpenRestart(true)}
             class="button new">Reiniciar Platô</a>
         </div>
     )

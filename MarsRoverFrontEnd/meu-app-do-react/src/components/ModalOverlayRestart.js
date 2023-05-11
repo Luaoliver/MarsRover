@@ -2,9 +2,9 @@ import { useContext, useEffect } from "react"
 import { ModalContext } from "../context/modalContext"
 
 function ModalOverlayRestart() {
-    const { isOpen, setIsOpen } = useContext(ModalContext)
+    const { isOpenRestart, setIsOpenRestart } = useContext(ModalContext)
 
-    if(isOpen) {
+    if(isOpenRestart) {
         return(
             <div class="modal-overlayRestart">
                 <div class="modal">
@@ -30,7 +30,7 @@ function ModalOverlayRestart() {
                             </div>
                             <div class="input-group actions">
                                 <a 
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => setIsOpenRestart(false)}
                                 href="#" 
                                 class="button cancel">Cancelar</a>
                                 <button>Salvar</button>
