@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import './style.css';
+import { RoverProvider } from './context/roverContext';
+import { ModalProvider } from './context/modalContext';
+import Header from './components/Header'
+import Main from './components/Main';
+import ModalOverlay from './components/ModalOverlay';
+import ModalOverlayRestart from './components/ModalOverlayRestart';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RoverProvider>
+        <ModalProvider>
+          <Header />
+          <Main />
+          <ModalOverlay />
+          <ModalOverlayRestart />
+        </ModalProvider>
+      </RoverProvider>
     </div>
   );
 }
