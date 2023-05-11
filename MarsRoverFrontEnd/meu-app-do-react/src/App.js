@@ -1,5 +1,6 @@
 import './App.css';
 import './style.css';
+import { RoverProvider } from './context/roverContext';
 import { ModalProvider } from './context/modalContext';
 import Header from './components/Header'
 import Main from './components/Main';
@@ -10,12 +11,14 @@ function App() {
 
   return (
     <div>
-      <ModalProvider>
-        <Header />
-        <Main />
-        <ModalOverlay />
-        <ModalOverlayRestart />
-      </ModalProvider>
+      <RoverProvider>
+        <ModalProvider>
+          <Header />
+          <Main />
+          <ModalOverlay />
+          <ModalOverlayRestart />
+        </ModalProvider>
+      </RoverProvider>
     </div>
   );
 }

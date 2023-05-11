@@ -1,4 +1,13 @@
+import { useContext } from "react"
+import { RoverContext } from "../context/roverContext"
+
 function Summary() {
+    const { ordenates, setOrdenates } = useContext(RoverContext)
+
+    function formatArray(array) {
+        return array.join(' ')
+    }
+
     return(
         <section id="summary">
             <div class="card total">
@@ -17,6 +26,14 @@ function Summary() {
                         </tr>
                     </thead>
                     <tbody>
+                        {ordenates.map(info => (
+                            <tr>
+                                <td class="description">{info.id}</td>
+                                <td class="description">{formatArray(info.landingPosition)}</td>
+                                <td class="description">{info.instruction}</td>
+                                <td class="description">{formatArray(info.finalPosition)}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
