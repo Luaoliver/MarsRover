@@ -15,14 +15,25 @@ function ModalOverlay() {
                             <div class="input-group">
                                 <label 
                                     class="sr-only" 
-                                    for="description">Local de pouso</label>
+                                    for="description">Local de pouso x</label>
                                 <input 
                                     type="text" 
                                     id="description" 
                                     name="description"
                                     placeholder="Posição eixo x"
                                 />
-                                <small class="help">A posição no eixo y, por padrão é assumida como 0.</small>
+                            </div>
+
+                            <div class="input-group">
+                                <label 
+                                    class="sr-only" 
+                                    for="description">Local de pouso y</label>
+                                <input 
+                                    type="text" 
+                                    id="description" 
+                                    name="description"
+                                    placeholder="Posição eixo y"
+                                />
                             </div>
     
                             <div class="input-group">
@@ -35,7 +46,7 @@ function ModalOverlay() {
                                     name="description"
                                     placeholder="Instrução de movimento"
                                 />
-                                <small class="help">Lembre-se que: você só pode adicionar comandos 'L', 'R' e 'M'. 'L' significa um giro de 90º a esquerda, 'R' gira em 90º a direita e 'M' move o rover em uma casa na direção em que ele aponta.</small>
+                                <small class="help">'L' - giro de 90º a esquerda. 'R' - giro de 90º a direita. 'M' move o rover em uma casa na direção em que ele aponta.</small>
                             </div>
     
                             <div class="input-group actions">
