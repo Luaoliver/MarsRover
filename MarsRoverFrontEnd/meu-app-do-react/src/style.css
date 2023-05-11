@@ -247,15 +247,10 @@ td.expense {
     align-items: center;
     justify-content: center;
 
-    opacity: 0;
-    visibility: hidden;
-
-    z-index: 999; /* empilhamento */
-}
-
-.modal-overlayRestart.active {
     opacity: 1;
     visibility: visible;
+
+    z-index: 999; /* empilhamento */
 }
 
 /* Form ================================= */
