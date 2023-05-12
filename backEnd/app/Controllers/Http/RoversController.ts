@@ -1,8 +1,14 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Rover from 'App/Models/Rover'
+import RoverService from 'App/Service/RoverService'
 import { Direction } from 'Contracts/enum'
 
 export default class RoversController {
+  private roverService: RoverService
+  constructor() {
+    this.roverService = new RoverService()
+  }
+
   public async index({ request, response }: HttpContextContract) {
     const data = await Rover.query()
     response.status(200).json(data)
@@ -13,7 +19,7 @@ export default class RoversController {
   public async store({ request, response }: HttpContextContract) {
     const rover = request.body()
     console.log(rover)
-    const result = await Rover.create(rover)
+    const result = await this.roverService.create(rover)
     response.status(201).json(result)
   }
 
