@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Rover from 'App/Models/Rover'
 import RoverService from 'App/Service/RoverService'
+import { roverSchema } from 'App/Service/RoverValidation'
 import { Direction } from 'Contracts/enum'
 
 export default class RoversController {
@@ -17,9 +18,9 @@ export default class RoversController {
   public async create({}: HttpContextContract) {}
 
   public async store({ request, response }: HttpContextContract) {
-    const rover = request.body()
-    console.log(rover)
-    const result = await this.roverService.create(rover)
+    const validatedRover = await request.validate({ schema: roverSchema })
+    console.log(validatedRover)
+    const result = await this.roverService.create(validatedRover)
     response.status(201).json(result)
   }
 

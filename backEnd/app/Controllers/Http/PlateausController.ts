@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Plateau from 'App/Models/Plateau'
+import { getPlateauSchema } from 'App/Service/PlateauValidation'
 
 export default class PlateausController {
   public async index({ request, response }: HttpContextContract) {
@@ -10,8 +11,9 @@ export default class PlateausController {
   public async create({}: HttpContextContract) {}
 
   public async store({ request, response }: HttpContextContract) {
-    const plateau = request.body()
-    const result = await Plateau.create(plateau)
+    const { yAxis } = await request.body()
+    const validatedRover = await request.validate({ schema: getPlateauSchema(yAxis) })
+    const result = await Plateau.create(validatedRover)
     response.status(201).json(result)
   }
 
