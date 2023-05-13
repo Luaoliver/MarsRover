@@ -1,26 +1,6 @@
-import { useEffect, useState } from 'react'
-import api from '../api'
+import React from 'react'
 
 export const Home = () => {
-    const [ home, setHome ] = useState([])
-
-    const getHome = async() => {
-        try {
-            const response = await api.get('/rover')
-            const data = response.data
-            console.log(data)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
-
-    useEffect(() => {
-        getHome()
-    }, [])
-
-
   return (
     ''
   )

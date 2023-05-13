@@ -5,7 +5,9 @@ function Summary() {
     const { ordenates, setOrdenates } = useContext(RoverContext)
 
     function formatArray(array) {
-        return array.join(' ')
+        if(array !== undefined) {
+            return array.join(' ')
+        }
     }
 
     return(
@@ -19,8 +21,8 @@ function Summary() {
                 <table id="data-table">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Local de Pouso</th>
+                            <th>Plateau de referência</th>
+                            <th>Local de Pouso da rover</th>
                             <th>Instrução</th>
                             <th>Posição final</th>
                         </tr>
@@ -28,10 +30,10 @@ function Summary() {
                     <tbody>
                         {ordenates.map(info => (
                             <tr>
-                                <td class="description">{info.id}</td>
+                                <td class="description">{info.plateauId}</td>
                                 <td class="description">{formatArray(info.landingPosition)}</td>
                                 <td class="description">{info.instruction}</td>
-                                <td class="description">{formatArray(info.finalPosition)}</td>
+                                <td class="description">{formatArray(info.currentPosition)}</td>
                             </tr>
                         ))}
                     </tbody>

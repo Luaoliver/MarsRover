@@ -5,3 +5,5 @@ export const Plateau = () => {
     ''
   )
 }
+
+export default Plateau
