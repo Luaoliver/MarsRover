@@ -44,7 +44,9 @@ export function RoverProvider(props) {
 	        startDirection
       })
       .then((response) => {
-        console.log(response.data);
+        alert('Rover adicionado com sucesso!')
+      }).catch((err) => {
+        alert('Certifique-se de adicionar valores válidos.')
       });
 
     }

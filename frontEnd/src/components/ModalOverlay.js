@@ -81,8 +81,8 @@ function ModalOverlay() {
                                 <a 
                                 onClick={() => setIsOpen(false)}
                                 href="/" 
-                                class="button cancel">Cancelar</a>
-                                <button onClick={handleCreateRover}>Salvar</button>
+                                class="back button">Voltar</a>
+                                <button onClick={handleCreateRover} type='submit'>Salvar</button>
                             </div>
                         </form>
                     </div>

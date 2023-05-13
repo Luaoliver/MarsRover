@@ -44,13 +44,16 @@ function ModalOverlayRestart() {
                                     value={yAxis}
                                     onChange={(e) => setYAxis(e.target.value)}
                                 />
+                                <small>A medida vertical deve menor que a medida horizontal para que retorne um plateau retangular</small>
                             </div>
                             <div class="input-group actions">
                                 <a 
                                 onClick={() => setIsOpenRestart(false)}
                                 href="/" 
-                                class="button cancel">Cancelar</a>
-                                <button onClick={handleCreatePlateau}>Salvar</button>
+                                class="back button">Voltar</a>
+                                <button 
+                                onClick={handleCreatePlateau}
+                                type="submit">Salvar</button>
                             </div>
                         </form>
                     </div>

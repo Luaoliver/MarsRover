@@ -7,9 +7,9 @@ export function PlateauProvider(props) {
 
     const [ ordenates, setOrdenates ] = useState([])
 
-    const getHome = async() => {
+    const getPlateau = async() => {
         try {
-            const response = await api.get('/rover')
+            const response = await api.get('/plateau')
             const data = response.data
             const formatedOrdenates = data.map(ordenates => {
                 return {
@@ -34,13 +34,15 @@ export function PlateauProvider(props) {
                 yAxis
       })
       .then((response) => {
-        console.log(response.data);
+        alert('Plateau salvo com sucesso!')
+      }).catch((err) => {
+        alert('Certifique-se de adicionar valores válidos.')
       });
 
     }
 
     useEffect(() => {
-        getHome().then((response) => {
+        getPlateau().then((response) => {
             console.log(response)
             setOrdenates(response)
         })
