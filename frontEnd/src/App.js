@@ -7,19 +7,22 @@ import ModalOverlay from './components/ModalOverlay';
 import ModalOverlayRestart from './components/ModalOverlayRestart';
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
+import { PlateauProvider } from './context/plateauContext';
 
 function App() {
 
   return (
     <div>
       <RoverProvider>
-        <ModalProvider>
-          <Outlet />
-          <Header />
-          <Main />
-          <ModalOverlay />
-          <ModalOverlayRestart />
-        </ModalProvider>
+        <PlateauProvider>
+          <ModalProvider>
+            <Outlet />
+            <Header />
+            <Main />
+            <ModalOverlay />
+            <ModalOverlayRestart />
+          </ModalProvider>
+        </PlateauProvider>
       </RoverProvider>
     </div>
   );

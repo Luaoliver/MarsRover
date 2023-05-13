@@ -1,8 +1,21 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { ModalContext } from "../context/modalContext"
+import { PlateauContext } from "../context/plateauContext"
 
 function ModalOverlayRestart() {
     const { isOpenRestart, setIsOpenRestart } = useContext(ModalContext)
+    const { createPlateau } = useContext(PlateauContext)
+
+    const [ xAxis, setXAxis ] = useState()
+    const [ yAxis, setYAxis ] = useState()
+
+    function handleCreatePlateau (event) {
+        event.preventDefault();
+        createPlateau({
+            xAxis: xAxis,
+	        yAxis: yAxis,
+        })
+    }
 
     if(isOpenRestart) {
         return(
@@ -20,12 +33,16 @@ function ModalOverlayRestart() {
                                     id="description" 
                                     name="description"
                                     placeholder="Medida horizontal"
+                                    value={xAxis}
+                                    onChange={(e) => setXAxis(e.target.value)}
                                 />
                                 <input 
                                     type="text" 
                                     id="description" 
                                     name="description"
                                     placeholder="Medida vertical"
+                                    value={yAxis}
+                                    onChange={(e) => setYAxis(e.target.value)}
                                 />
                             </div>
                             <div class="input-group actions">
@@ -33,7 +50,7 @@ function ModalOverlayRestart() {
                                 onClick={() => setIsOpenRestart(false)}
                                 href="/" 
                                 class="button cancel">Cancelar</a>
-                                <button>Salvar</button>
+                                <button onClick={handleCreatePlateau}>Salvar</button>
                             </div>
                         </form>
                     </div>
