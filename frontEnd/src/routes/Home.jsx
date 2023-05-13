@@ -10,7 +10,6 @@ export const Home = () => {
             const data = response.data
             console.log(data)
 
-            setHome(data)
         } catch (error) {
             console.log(error)
         }

@@ -1,27 +1,27 @@
-import React from 'react'
+
+
+//const Rover = () => {
+//  return (
+//    <div>Rover</div>
+//  )
+//}
+//
+//export default Rover
+
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import api from "../api"
+import React from "react"
 
 const Rover = () => {
-  return (
-    <div>Rover</div>
-  )
-}
+    const [ rover, setRover ] = useState([])
 
-export default Rover
+    useEffect(() => {
+        api.get('/rover').then((response) => {
+          setRover(response.data);
+        });
+      }, []);
 
-//import { useState, useEffect } from "react"
-//import { Link } from "react-router-dom"
-//import api from "../api"
-//import React from "react"
-//
-//const Rover = () => {
-//    const [ rover, setRover ] = useState([])
-//
-//    useEffect(() => {
-//        api.get('/rover').then((response) => {
-//          setRover(response.data);
-//        });
-//      }, []);
-//
 //    const createRover = async() => {
 //        api
 //            .post('/rover', {
@@ -35,19 +35,13 @@ export default Rover
 //      });
 //
 //    }
-//
-//    if (!rover) return "No rover!"
-//
-//    return (
-//        <div>
-//            <p>{rover.startPositionX}</p>
-//            <p>{rover.startPositionY}</p>
-//            <p>{rover.instruction}</p>
-//            <p>{rover.startDirection}</p>
-//            <button onClick={createRover}>Create Rover</button>
-//        </div>
-//    )
-//
-//}
-//
-//export default Rover
+
+    if (!rover) return "No rover!"
+
+    return (
+        ''
+    )
+
+}
+
+export default Rover
