@@ -58,7 +58,7 @@ function ModalOverlay() {
                             <div class="input-group actions">
                                 <a 
                                 onClick={() => setIsOpen(false)}
-                                href="#" 
+                                href="/" 
                                 class="button cancel">Cancelar</a>
                                 <button>Salvar</button>
                             </div>

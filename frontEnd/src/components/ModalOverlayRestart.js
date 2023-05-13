@@ -31,7 +31,7 @@ function ModalOverlayRestart() {
                             <div class="input-group actions">
                                 <a 
                                 onClick={() => setIsOpenRestart(false)}
-                                href="#" 
+                                href="/" 
                                 class="button cancel">Cancelar</a>
                                 <button>Salvar</button>
                             </div>
