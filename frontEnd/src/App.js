@@ -2,6 +2,7 @@ import './App.css';
 import './style.css';
 import { RoverProvider } from './context/roverContext';
 import { ModalProvider } from './context/modalContext';
+import { Outlet } from 'react-router-dom';
 import Header from './components/Header'
 import Main from './components/Main';
 import ModalOverlay from './components/ModalOverlay';
@@ -13,6 +14,7 @@ function App() {
     <div>
       <RoverProvider>
         <ModalProvider>
+          <Outlet />
           <Header />
           <Main />
           <ModalOverlay />
