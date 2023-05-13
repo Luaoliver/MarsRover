@@ -6,7 +6,7 @@ function RoverButton() {
 
     return(
         <div class="card">
-            <a href="#"
+            <a href="/rover"
             onClick={() => setIsOpen(true)}
             class="button new">+ Adicionar Novo Rover</a>
         </div>

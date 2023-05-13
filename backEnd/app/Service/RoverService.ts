@@ -36,11 +36,17 @@ export default class RoverService {
             rover.currentPositionY + 1 <= plateau.yAxis
           ) {
             rover.currentPositionY++
-          } else if (rover.currentDirection === Direction.E) {
+          } else if (rover.currentDirection === Direction.E && 
+            rover.currentPositionX + 1 <= plateau.xAxis
+          ) {
             rover.currentPositionX++
-          } else if (rover.currentDirection === Direction.S) {
+          } else if (rover.currentDirection === Direction.S &&
+            rover.currentPositionY - 1 <= plateau.yAxis
+          ) {
             rover.currentPositionY--
-          } else if (rover.currentDirection === Direction.W) {
+          } else if (rover.currentDirection === Direction.W &&
+            rover.currentPositionX - 1 <= plateau.xAxis
+          ) {
             rover.currentPositionX--
           } else {
             throw new InvalidMovementException('invalid moviment')

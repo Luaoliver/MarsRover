@@ -6,7 +6,7 @@ function RestartButton() {
 
     return(
         <div class="card">
-            <a href="#" 
+            <a href="/plateau" 
             onClick={() => setIsOpenRestart(true)}
             class="button new">Reiniciar Platô</a>
         </div>

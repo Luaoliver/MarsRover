@@ -1,24 +1,65 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import api from '../api';
 
 export const RoverContext = createContext({})
 export function RoverProvider(props) {
-    const [ ordenates, setOrdenates ] = useState([
-        {
-            id: 1,
-            landingPosition: [1, 2, 'N'],
-            instruction: ['L', 'M', 'L', 'M', 'L', 'M', 'L', 'M', 'M'],
-            finalPosition: [1, 3, 'N']
-        },
-        {
-            id: 2,
-            landingPosition: [3, 3, 'E'],
-            instruction: ['M', 'R', 'R', 'M', 'M', 'R', 'M', 'R', 'R', 'M'],
-            finalPosition: [2, 3, 'S']
-        },
-    ]);
+    const [ ordenates, setOrdenates ] = useState([])
+
+    const getHome = async() => {
+        try {
+            const response = await api.get('/rover')
+            const data = response.data
+            const formatedOrdenates = data.map(ordenates => {
+                return {
+                    plateauId: ordenates.plateau_id,
+                    landingPosition: [
+                        ordenates.start_position_x, 
+                        ordenates.start_position_y, 
+                        ordenates.start_direction 
+                    ],
+                    instruction: ordenates.instruction,
+                    currentPosition: [
+                        ordenates.current_position_x,
+                        ordenates.current_position_y,
+                        ordenates.current_direction
+                    ]
+
+                }
+            })
+            
+            return formatedOrdenates
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const createRover = async({ startPositionX, startPositionY, instruction, startDirection }) => {
+        api
+            .post('/rover', {
+            startPositionX,
+	        startPositionY,
+	        instruction,
+	        startDirection
+      })
+      .then((response) => {
+        alert('Rover adicionado com sucesso!')
+      }).catch((err) => {
+        alert('Certifique-se de adicionar valores válidos.')
+      });
+
+    }
+    
+    useEffect(() => {
+        getHome().then((response) => {
+            console.log(response)
+            setOrdenates(response)
+        })
+    }, [])
 
     return(
-        <RoverContext.Provider value={{ ordenates, setOrdenates }}>
+        <RoverContext.Provider value={{ ordenates, setOrdenates, createRover }}>
             {props.children}
         </RoverContext.Provider>
     )
