@@ -3,6 +3,7 @@ import RestartButton from "./RestartButton"
 import Summary from "./Summar"
 import { Link } from "react-router-dom"
 
+
 function Main() {
     return(
         <main class="container">

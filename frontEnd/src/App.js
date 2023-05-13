@@ -23,6 +23,7 @@ function App() {
             <ModalOverlayRestart />
           </ModalProvider>
         </PlateauProvider>
+
       </RoverProvider>
     </div>
   );

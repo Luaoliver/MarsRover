@@ -35,6 +35,7 @@ function ModalOverlayRestart() {
                                     placeholder="Medida horizontal"
                                     value={xAxis}
                                     onChange={(e) => setXAxis(e.target.value)}
+
                                 />
                                 <input 
                                     type="text" 
@@ -45,6 +46,7 @@ function ModalOverlayRestart() {
                                     onChange={(e) => setYAxis(e.target.value)}
                                 />
                                 <small>A medida vertical deve menor que a medida horizontal para que retorne um plateau retangular</small>
+
                             </div>
                             <div class="input-group actions">
                                 <a 
@@ -54,6 +56,7 @@ function ModalOverlayRestart() {
                                 <button 
                                 onClick={handleCreatePlateau}
                                 type="submit">Salvar</button>
+
                             </div>
                         </form>
                     </div>

@@ -58,6 +58,7 @@ function ModalOverlay() {
                                     placeholder="Direção"
                                     value={direction}
                                     onChange={(e) => setDirection(e.target.value)}
+
                                 />
                                 <small class="help">A posição no eixo y, por padrão é assumida como 0.</small>
                             </div>
@@ -73,6 +74,7 @@ function ModalOverlay() {
                                     placeholder="Instrução de movimento"
                                     value={instruction}
                                     onChange={(e) => setInstruction(e.target.value)}
+
                                 />
                                 <small class="help">Lembre-se que: você só pode adicionar comandos 'L', 'R' e 'M'. 'L' significa um giro de 90º a esquerda, 'R' gira em 90º a direita e 'M' move o rover em uma casa na direção em que ele aponta.</small>
                             </div>
@@ -83,6 +85,7 @@ function ModalOverlay() {
                                 href="/" 
                                 class="back button">Voltar</a>
                                 <button onClick={handleCreateRover} type='submit'>Salvar</button>
+
                             </div>
                         </form>
                     </div>
